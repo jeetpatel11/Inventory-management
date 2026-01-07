@@ -1,12 +1,14 @@
-# Node
+# node modules
 node_modules/
-npm-debug.log*
-yarn-error.log*
+backend/node_modules/
+frontend/node_modules/
 
+# env files
+.env
 
-# Build
+# build
 dist/
 build/
 
-# OS
-.DS_Store
+# logs
+npm-debug.log*
