@@ -30,10 +30,10 @@ const ProductList =({products,onEdit,onDelete})=>{
                             <td>{product.category}</td>
                             <td>{product.price}</td>
                             <td>{product.quantity}</td>
-                            <td>{product.status}</td>
+                            <td style={{backgroundColor:"lightblue"}}>{product.status}</td>
                             <td>
-                                <button onClick={()=>onEdit(product)}>Edit</button>
-                                <button onClick={()=>onDelete(product._id)}>Delte</button>
+                                <button onClick={()=>onEdit(product)} style={{backgroundColor:"orange",margin:'5px'}}>Edit</button>
+                                <button onClick={()=>onDelete(product._id)} style={{backgroundColor:"red",margin:'5px'}}>Delte</button>
                             </td>
                         </tr>
                         )

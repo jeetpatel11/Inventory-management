@@ -27,7 +27,7 @@ function App() {
   const handleAdd = async (product)=>{
     if(editingProduct)
     {
-      await updateProduct(editingProduct._id)
+      await updateProduct(editingProduct._id,product)
       seteditingProduct(null);
     }
     else

@@ -1,4 +1,5 @@
 import react from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react';
 
 const ProductForm =({onSubmit,productToEdit,onCancel})=>{
@@ -10,10 +11,32 @@ const ProductForm =({onSubmit,productToEdit,onCancel})=>{
         price:"",
     })
 
+    useEffect(()=>{
+        if(productToEdit)
+        {
+            setProduct({
+                name:productToEdit.name,
+                category:productToEdit.category,
+                quantity:productToEdit.quantity,
+                price:productToEdit.price,
+            })
+        }
+        else
+        {
+            setProduct({
+                 name:"",
+        category:"",
+        quantity:"",
+        price:"",
+            })
+        }
+    },[productToEdit])
+
 
     const handleChange=(e)=>{
         const {name,value}=e.target;
         setProduct((prev)=>({...prev,[name]:value}))
+
     }
 
     const handleSubmit=(e)=>{
@@ -47,6 +70,16 @@ const ProductForm =({onSubmit,productToEdit,onCancel})=>{
                   required
                   style={{margin:"5px"}}
                 />
+                  <input
+                    type='number'
+                    placeholder='Price..'
+                    name='price'
+                    value={product.price}
+                    onChange={handleChange}
+                    required
+                    style={{margin:"5px"}}
+                    
+                  />
                 <input
                   type='number'
                   placeholder='Quantity..'
@@ -56,20 +89,11 @@ const ProductForm =({onSubmit,productToEdit,onCancel})=>{
                   required
                   style={{margin:"5px"}}
                 />
-                <input
-                  type='number'
-                  placeholder='Price..'
-                  name='price'
-                  value={product.price}
-                  onChange={handleChange}
-                  required
-                  style={{margin:"5px"}}
-                />
 
-                <button type='submit'>
+                <button type='submit' style={{backgroundColor:"grey"}}>
                     {productToEdit?"Update":"Add"}
                 </button>
-                {productToEdit && <button onClick={onCancel}>Cancel</button>}
+                {productToEdit && <button onClick={onCancel} style={{backgroundColor:"red",margin:'5px'}}>Cancel</button>}
             </form>
         </>
     )
