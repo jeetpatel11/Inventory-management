@@ -27,11 +27,19 @@ const productSchema=new mongoose.Schema({
         enum:['in stock','out of stock'],
         default:'in stock'
     },
-    
+
+
     
 },
 
+
 {timestamps:true}
 );
+
+
+productSchema.pre("save",function(next){
+    this.status=this.quantity>0?"In Stock":"Out of Stock";
+    next()
+});
 
 module.exports=mongoose.model('Product',productSchema);
