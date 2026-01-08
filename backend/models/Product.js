@@ -37,9 +37,9 @@ const productSchema=new mongoose.Schema({
 );
 
 
-productSchema.pre("save",function(next){
-    this.status=this.quantity>0?"In Stock":"Out of Stock";
-    next()
-});
+// productSchema.pre("save",function(next){
+//     this.status=this.quantity>0?"In Stock":"Out of Stock";
+//     next()
+// });
 
 module.exports=mongoose.model('Product',productSchema);

@@ -14,7 +14,7 @@ export const addProduct = async (product)=>{
 
 export const updateProduct = async (id,product)=>{
     
-    return await axios.post(`${APIBASEURL}/${id}`,product);
+    return await axios.put(`${APIBASEURL}/${id}`,product);
 }
 export const deleteProduct = async (id)=>{
     

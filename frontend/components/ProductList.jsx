@@ -1,6 +1,6 @@
 import react from 'react'
 
-const ProductList =({products})=>{
+const ProductList =({products,onEdit,onDelete})=>{
     return(
         <>
             <table border={1}>
@@ -11,6 +11,7 @@ const ProductList =({products})=>{
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,10 @@ const ProductList =({products})=>{
                             <td>{product.price}</td>
                             <td>{product.quantity}</td>
                             <td>{product.status}</td>
+                            <td>
+                                <button onClick={()=>onEdit(product)}>Edit</button>
+                                <button onClick={()=>onDelete(product._id)}>Delte</button>
+                            </td>
                         </tr>
                         )
                     })
