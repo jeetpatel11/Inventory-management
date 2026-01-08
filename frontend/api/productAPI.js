@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const APIBASEURL="http://localhost:5000/api/products";
+const APIBASEURL="https://inventory-mangement-backend.onrender.com/api/products";
 
 
 export const getProducts = async ()=>{
